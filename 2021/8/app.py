@@ -58,10 +58,10 @@ if __name__ == "__main__":
                     chars_in_seq = [char for char in seq]
                     chars_in_seq.sort()
                     known_segments[i].append(chars_in_seq)
-        # pprint(known_segments)
+        pprint(known_segments)
 
         one_combo = known_segments[2][0]
-        # print(one_combo)
+        print(one_combo)
         # print(known_segments[3][0])
         zero = str()
         for char in known_segments[3][0]:
@@ -69,7 +69,7 @@ if __name__ == "__main__":
                 zero = char
         # print(known_segments[4][0])
         four_combo = [x for x in known_segments[4][0] if x not in one_combo]
-        # print(four_combo)
+        print(four_combo)
         somewhat_known_before_eight = [zero]
         for char in known_segments[4][0]:
             somewhat_known_before_eight.append(char)
@@ -83,6 +83,7 @@ if __name__ == "__main__":
         for i in range(3):
             for char in known_segments[5][i]:
                 len_five_count[char] += 1
+
         three = str()
         one = str()
         for char in four_combo:
@@ -114,22 +115,22 @@ if __name__ == "__main__":
             else:
                 five = char
         solved_positions = [zero, one, two, three, four, five, six]
-        for position in solved_positions:
-            print(position)
-        print(solved_positions)
+        # for position in solved_positions:
+        #     print(position)
+        # print(solved_positions)
         output = list()
         for seq in clean_line[1].split():
             string_position = list()
-            print(seq)
+            # print(seq)
             for char in seq:
                 string_position.append(solved_positions.index(char))
             string_position.sort()
             string_position = [str(x) for x in string_position]
             string_position = "".join(string_position)
-            print(string_position)
-            print(number_mapping[string_position])
+            # print(string_position)
+            # print(number_mapping[string_position])
             output.append(str(number_mapping[string_position]))
         output = int("".join(output))
-        print(output)
+        # print(output)
         total_output += output
     print(total_output)
